@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — OptiCrop</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="topnav">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a class="active" href="{{ url_for('about') }}">About</a>
+    <a href="{{ url_for('findyourcrop') }}">Find Your Crop</a>
+  </div>
+
+  <div class="page">
+    <span class="eyebrow">About The Project</span>
+    <h2>Opti Crop Agricultural Optimisation</h2>
+    <p>
+      The main purpose of Opti Crop is to develop an advanced software system that turns raw field
+      data into clear, actionable recommendations. Instead of guesswork, farmers get a
+      recommendation grounded in the same seven readings agronomists already track in the field.
+    </p>
+
+    <div class="stat-row">
+      <div class="stat"><span class="n">N · P · K</span><span class="label">Soil nutrients</span></div>
+      <div class="stat"><span class="n">Temp · Humidity</span><span class="label">Climate readings</span></div>
+      <div class="stat"><span class="n">pH</span><span class="label">Soil acidity</span></div>
+      <div class="stat"><span class="n">Rainfall</span><span class="label">Water supply</span></div>
+    </div>
+
+    <div class="card">
+      <h3>How it works</h3>
+      <p>
+        Opti Crop takes seven inputs — nitrogen, phosphorous, potassium, temperature, humidity, pH,
+        and rainfall — and passes them through a trained machine learning model. The model compares
+        your readings against patterns learned from historical crop-yield data to recommend the crop
+        best suited to those exact conditions.
+      </p>
+      <p>
+        This helps farmers maximize yield, use fertilizer and water more efficiently, and make
+        planting decisions backed by data rather than intuition alone.
+      </p>
+    </div>
+  </div>
+
+  <div class="site-footer">Opti Crop · Smart Agricultural Production Optimization Engine</div>
+
+</body>
+</html>

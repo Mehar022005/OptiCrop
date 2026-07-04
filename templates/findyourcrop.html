@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Crop — OptiCrop</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="topnav">
+    <a href="{{ url_for('home') }}">Home</a>
+    <a href="{{ url_for('about') }}">About</a>
+    <a class="active" href="{{ url_for('findyourcrop') }}">Find Your Crop</a>
+  </div>
+
+  <div class="page">
+    <span class="eyebrow">Crop Recommendation</span>
+    <h2>Find the right crop for your field</h2>
+    <p>Enter your latest soil and climate readings below. All seven fields are required for an accurate recommendation.</p>
+
+    <div class="card">
+      <form action="{{ url_for('predict') }}" method="post">
+        <div class="field-grid">
+          <div class="field">
+            <label for="nitrogen">Nitrogen <span class="unit">(N, kg/ha)</span></label>
+            <input type="number" step="any" id="nitrogen" name="nitrogen" placeholder="e.g. 90" required>
+          </div>
+          <div class="field">
+            <label for="phosphorous">Phosphorous <span class="unit">(P, kg/ha)</span></label>
+            <input type="number" step="any" id="phosphorous" name="phosphorous" placeholder="e.g. 42" required>
+          </div>
+          <div class="field">
+            <label for="potassium">Potassium <span class="unit">(K, kg/ha)</span></label>
+            <input type="number" step="any" id="potassium" name="potassium" placeholder="e.g. 43" required>
+          </div>
+          <div class="field">
+            <label for="temperature">Temperature <span class="unit">(°C)</span></label>
+            <input type="number" step="any" id="temperature" name="temperature" placeholder="e.g. 25.6" required>
+          </div>
+          <div class="field">
+            <label for="humidity">Humidity <span class="unit">(%)</span></label>
+            <input type="number" step="any" id="humidity" name="humidity" placeholder="e.g. 80.3" required>
+          </div>
+          <div class="field">
+            <label for="ph">Soil pH</label>
+            <input type="number" step="any" id="ph" name="ph" placeholder="e.g. 6.5" required>
+          </div>
+          <div class="field">
+            <label for="rainfall">Rainfall <span class="unit">(mm)</span></label>
+            <input type="number" step="any" id="rainfall" name="rainfall" placeholder="e.g. 202.9" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Predict Best Crop</button>
+      </form>
+
+      {% if prediction_text %}
+      <p class="flask-output">{{ prediction_text }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="site-footer">Opti Crop · Smart Agricultural Production Optimization Engine</div>
+
+</body>
+</html>
